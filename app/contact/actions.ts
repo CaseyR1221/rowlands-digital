@@ -50,12 +50,18 @@ export async function submitContactForm(
     };
   }
 
+  const success: ContactFormState = {
+    status: "success",
+    inquiryType: parsed.data.inquiryType,
+    hasWebsite: Boolean(parsed.data.website),
+  };
+
   const honeypotValue = formData.get(HONEYPOT_FIELD_NAME);
   if (typeof honeypotValue === "string" && honeypotValue.length > 0) {
     // Likely an automated submission. Return the same success response a real
     // visitor would get, without processing further, so the sender gets no
     // signal that anything was different.
-    return { status: "success", inquiryType: parsed.data.inquiryType };
+    return success;
   }
 
   if (process.env.NODE_ENV === "development") {
@@ -66,5 +72,5 @@ export async function submitContactForm(
   // Once Resend is configured, this is where the validated submission gets
   // handed off, and success should only be returned after delivery succeeds.
 
-  return { status: "success", inquiryType: parsed.data.inquiryType };
+  return success;
 }

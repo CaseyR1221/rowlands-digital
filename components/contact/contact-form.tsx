@@ -37,14 +37,21 @@ export function ContactForm() {
     submitContactForm,
     initialContactFormState,
   );
-  const [inquiryType, setInquiryType] = useState("");
+  const [selectedInquiry, setSelectedInquiry] = useState("");
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
+  const errorAlertRef = useRef<HTMLDivElement>(null);
 
+  // Move focus to whichever outcome just rendered. Without this the submit
+  // button's disabled state drops focus to <body>, and a visitor who submitted
+  // from the bottom of a long form sees nothing change.
   useEffect(() => {
     if (state.status === "success") {
       successHeadingRef.current?.focus();
+    } else if (state.status === "error") {
+      errorAlertRef.current?.focus();
+      errorAlertRef.current?.scrollIntoView({ block: "center" });
     }
-  }, [state.status]);
+  }, [state]);
 
   if (state.status === "success") {
     return (
@@ -59,7 +66,7 @@ export function ContactForm() {
         <p className="mt-3 leading-relaxed text-muted-foreground">
           I&rsquo;ll review what you sent and get back to you directly.
         </p>
-        {state.inquiryType === WEBSITE_REVIEW_INQUIRY ? (
+        {state.inquiryType === WEBSITE_REVIEW_INQUIRY && state.hasWebsite ? (
           <p className="mt-3 leading-relaxed text-muted-foreground">
             I&rsquo;ll take a look at the website you provided before responding
             so I can come back with something useful.
@@ -71,6 +78,13 @@ export function ContactForm() {
 
   const fieldErrors = state.status === "error" ? state.fieldErrors : undefined;
   const values = state.status === "error" ? state.values : undefined;
+
+  // React resets the form once the action returns, which clears this
+  // controlled Select. The text inputs come back from `values` via
+  // defaultValue; the Select falls back to whatever was submitted, so a
+  // visitor who tripped a validation error doesn't have to pick again.
+  const inquiryType = selectedInquiry || (values?.inquiryType ?? "");
+
   const submitLabel =
     inquiryType === WEBSITE_REVIEW_INQUIRY
       ? "Request My Website Review"
@@ -79,7 +93,12 @@ export function ContactForm() {
   return (
     <form action={formAction} className="space-y-6">
       {state.status === "error" ? (
-        <Alert variant="destructive">
+        <Alert
+          ref={errorAlertRef}
+          tabIndex={-1}
+          variant="destructive"
+          className="focus:outline-none"
+        >
           <AlertTitle>There&rsquo;s a problem with your submission</AlertTitle>
           <AlertDescription>{state.formError}</AlertDescription>
         </Alert>
@@ -90,18 +109,19 @@ export function ContactForm() {
       </p>
 
       {/* Honeypot — hidden from sighted and keyboard users. Real visitors never
-          see or fill this; automated form-fillers often do. */}
+          see or fill this; automated form-fillers often do. It carries no label
+          and an autocomplete token password managers won't match, so a visitor's
+          saved identity never lands in it and gets their message discarded. */}
       <div
         aria-hidden="true"
         className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden"
       >
-        <Label htmlFor="hp_company">Company</Label>
         <Input
           id="hp_company"
           name="hp_company"
           type="text"
           tabIndex={-1}
-          autoComplete="off"
+          autoComplete="new-password"
         />
       </div>
 
@@ -115,6 +135,7 @@ export function ContactForm() {
             name="name"
             type="text"
             required
+            autoComplete="name"
             defaultValue={values?.name}
             aria-invalid={fieldErrors?.name ? true : undefined}
             aria-describedby={fieldErrors?.name ? "name-error" : undefined}
@@ -132,6 +153,7 @@ export function ContactForm() {
             name="business"
             type="text"
             required
+            autoComplete="organization"
             defaultValue={values?.business}
             aria-invalid={fieldErrors?.business ? true : undefined}
             aria-describedby={
@@ -152,6 +174,7 @@ export function ContactForm() {
           name="email"
           type="email"
           required
+          autoComplete="email"
           defaultValue={values?.email}
           aria-invalid={fieldErrors?.email ? true : undefined}
           aria-describedby={fieldErrors?.email ? "email-error" : undefined}
@@ -168,7 +191,7 @@ export function ContactForm() {
           name="inquiryType"
           required
           value={inquiryType}
-          onValueChange={setInquiryType}
+          onValueChange={setSelectedInquiry}
         >
           <SelectTrigger
             id="inquiryType"
@@ -216,6 +239,7 @@ export function ContactForm() {
             id="website"
             name="website"
             type="url"
+            autoComplete="url"
             placeholder="https://"
             defaultValue={values?.website}
             aria-invalid={fieldErrors?.website ? true : undefined}
@@ -242,6 +266,7 @@ export function ContactForm() {
             id="phone"
             name="phone"
             type="tel"
+            autoComplete="tel"
             defaultValue={values?.phone}
             aria-invalid={fieldErrors?.phone ? true : undefined}
             aria-describedby={fieldErrors?.phone ? "phone-error" : undefined}

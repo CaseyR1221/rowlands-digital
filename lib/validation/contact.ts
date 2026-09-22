@@ -33,15 +33,17 @@ export const contactFormSchema = z.object({
   ),
   email: z.preprocess(
     trimIfString,
-    z
-      .email("Enter a valid email address.")
-      .min(1, "Enter your email address.")
-      .max(254, "That email is too long."),
+    z.email("Enter a valid email address.").max(254, "That email is too long."),
   ),
   website: z.preprocess(
     trimToUndefinedIfEmpty,
     z
-      .url("Enter a valid website URL, including https://.")
+      .url({
+        // Anything but http(s) — javascript:, mailto:, ftp: — would otherwise
+        // be captured here and later rendered as a link in a notification email.
+        protocol: /^https?$/,
+        error: "Enter a valid website URL, including https://.",
+      })
       .max(300, "That URL is too long.")
       .optional(),
   ),
@@ -66,7 +68,6 @@ export const contactFormSchema = z.object({
     z
       .string()
       .regex(/^[0-9+()./\-\s]{7,20}$/, "Enter a valid phone number.")
-      .max(30, "That phone number is too long.")
       .optional(),
   ),
 });
@@ -87,6 +88,6 @@ export type ContactFormState =
       formError: string;
       values: ContactFormValuesInput;
     }
-  | { status: "success"; inquiryType: InquiryType };
+  | { status: "success"; inquiryType: InquiryType; hasWebsite: boolean };
 
 export const initialContactFormState: ContactFormState = { status: "idle" };
