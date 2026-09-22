@@ -1,26 +1,145 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * Dark mode is intentionally class-gated and never enabled: the Rowlands
+ * Digital Works palette is light-only. Keeping the custom variant prevents
+ * shadcn's built-in `dark:` utilities from firing on OS-level dark mode.
+ */
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-dark-section: var(--dark-section);
+
+  /* Consumed by shadcn primitives (Sheet renders on a solid surface). */
+  --color-card: var(--surface);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--foreground);
+  --color-secondary: var(--accent-soft);
+  --color-secondary-foreground: var(--primary-hover);
+  --color-destructive: var(--destructive);
+
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+
+  /* Fluid display scale — the page's loudest voice is its typography. */
+  --text-display: clamp(2.125rem, 1.4rem + 3.1vw, 3.5rem);
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.032em;
+  --text-headline: clamp(1.75rem, 1.2rem + 2.2vw, 2.75rem);
+  --text-headline--line-height: 1.12;
+  --text-headline--letter-spacing: -0.024em;
+  --text-title: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+  --text-title--line-height: 1.25;
+  --text-title--letter-spacing: -0.014em;
+  --text-lead: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-lead--line-height: 1.6;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #f8f8f5;
+  --surface: #ffffff;
+
+  --foreground: #172022;
+  --muted-foreground: #586466;
+  --muted: #edeee9;
+
+  --primary: #274c5b;
+  --primary-hover: #1d3b47;
+  --primary-foreground: #ffffff;
+
+  --accent: #4f7c73;
+  --accent-soft: #e8f0ed;
+  --accent-foreground: #ffffff;
+
+  --border: #dde3e1;
+  --input: #dde3e1;
+  --ring: #4f7c73;
+  --dark-section: #17272d;
+
+  --destructive: #a13d33;
+  --radius: 0.375rem;
+}
+
+/*
+ * Inverted token scope for the occasional dark band. Nesting the overrides
+ * means shadcn primitives and focus rings adapt without bespoke overrides.
+ */
+.section-dark {
+  --background: #17272d;
+  --surface: #1e323a;
+  --foreground: #f5f8f7;
+  --muted-foreground: #a8bab9;
+  --muted: #223740;
+  --border: #2e4249;
+  --ring: #8fb8ae;
+  --accent: #8fb8ae;
+  --primary: #f8f8f5;
+  --primary-hover: #e4eae7;
+  --primary-foreground: #17272d;
+
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+
+  /*
+   * Links carry an outline rather than shadcn's ring so the indicator stays
+   * visible against both the page background and the dark bands.
+   */
+  a:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
