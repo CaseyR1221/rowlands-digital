@@ -1,6 +1,3 @@
-import { SectionHeading } from "@/components/section-heading";
-import { siteConfig } from "@/lib/site";
-
 const STEPS = [
   {
     number: "01",
@@ -27,39 +24,33 @@ const STEPS = [
 export function ContactProcess() {
   return (
     <div>
-      <SectionHeading
-        title="What happens next"
-        lead="Every request comes straight to me — here is how it works, start to finish."
-      />
+      <h2 className="text-title font-semibold text-foreground">
+        What happens next
+      </h2>
+      <p className="mt-3 leading-relaxed text-muted-foreground">
+        Every request comes straight to me — here is how it works, start to
+        finish.
+      </p>
 
-      <ol className="mt-12 grid divide-y divide-border border-y border-border sm:mt-14 lg:grid-cols-4 lg:divide-x lg:divide-y-0">
+      {/* No bottom rule: the "Prefer email?" divider below closes the section,
+          and two parallel rules would leave an empty band between them. */}
+      <ol className="mt-8 divide-y divide-border border-t border-border">
         {STEPS.map((step) => (
-          <li
-            key={step.number}
-            className="py-8 lg:px-7 lg:py-10 lg:first:pl-0 lg:last:pr-0"
-          >
-            <span className="text-sm font-semibold text-primary">
+          <li key={step.number} className="flex gap-5 py-6 sm:gap-7">
+            {/* Fixed width so every title starts on the same axis — digit
+                glyphs differ enough in width to leave the edge ragged. */}
+            <span className="w-6 shrink-0 pt-0.5 text-sm font-semibold text-primary">
               {step.number}
             </span>
-            <h3 className="mt-3 text-title font-semibold text-foreground">
-              {step.title}
-            </h3>
-            <p className="mt-3 leading-relaxed text-muted-foreground">
-              {step.body}
-            </p>
+            <div>
+              <h3 className="font-medium text-foreground">{step.title}</h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
+                {step.body}
+              </p>
+            </div>
           </li>
         ))}
       </ol>
-
-      <p className="mt-10 text-sm text-muted-foreground">
-        Prefer email?{" "}
-        <a
-          href={`mailto:${siteConfig.email}`}
-          className="font-medium text-primary underline decoration-border underline-offset-4 transition-colors hover:decoration-primary"
-        >
-          {siteConfig.email}
-        </a>
-      </p>
     </div>
   );
 }

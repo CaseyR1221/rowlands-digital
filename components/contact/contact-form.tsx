@@ -32,7 +32,13 @@ function FieldError({ id, messages }: { id: string; messages?: string[] }) {
   );
 }
 
-export function ContactForm() {
+export function ContactForm({
+  whatHappensNext,
+}: {
+  // Rendered by the page as a Server Component and passed through, so this
+  // copy costs no client JavaScript and is ready the moment the form is sent.
+  whatHappensNext: React.ReactNode;
+}) {
   const [state, formAction, pending] = useActionState(
     submitContactForm,
     initialContactFormState,
@@ -55,23 +61,27 @@ export function ContactForm() {
 
   if (state.status === "success") {
     return (
-      <div className="border border-border bg-surface p-6 sm:p-8">
-        <h2
-          ref={successHeadingRef}
-          tabIndex={-1}
-          className="text-title font-semibold text-foreground focus:outline-none"
-        >
-          Thanks — I&rsquo;ve got it.
-        </h2>
-        <p className="mt-3 leading-relaxed text-muted-foreground">
-          I&rsquo;ll review what you sent and get back to you directly.
-        </p>
-        {state.inquiryType === WEBSITE_REVIEW_INQUIRY && state.hasWebsite ? (
+      <div>
+        <div className="border border-border bg-surface p-6 sm:p-8">
+          <h2
+            ref={successHeadingRef}
+            tabIndex={-1}
+            className="text-title font-semibold text-foreground focus:outline-none"
+          >
+            Thanks — I&rsquo;ve got it.
+          </h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
-            I&rsquo;ll take a look at the website you provided before responding
-            so I can come back with something useful.
+            I&rsquo;ll review what you sent and get back to you directly.
           </p>
-        ) : null}
+          {state.inquiryType === WEBSITE_REVIEW_INQUIRY && state.hasWebsite ? (
+            <p className="mt-3 leading-relaxed text-muted-foreground">
+              I&rsquo;ll take a look at the website you provided before
+              responding so I can come back with something useful.
+            </p>
+          ) : null}
+        </div>
+
+        <div className="mt-14">{whatHappensNext}</div>
       </div>
     );
   }
