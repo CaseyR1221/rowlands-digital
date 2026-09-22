@@ -1,4 +1,4 @@
-import { cn } from "cn";
+import { cn } from "@/lib/utils";
 
 /**
  * Eyebrow, heading and optional lead-in, sharing one measure and rhythm.
