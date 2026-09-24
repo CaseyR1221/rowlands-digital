@@ -4,9 +4,10 @@ import { useActionState, useEffect, useRef, useState } from "react";
 
 import { submitContactForm } from "@/app/contact/actions";
 import {
+  FREE_WEBSITE_REVIEW_INQUIRY,
+  WEBSITE_REQUIRED_INQUIRY_TYPES,
   inquiryTypes,
   initialContactFormState,
-  type InquiryType,
 } from "@/lib/validation/contact";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -20,8 +21,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-
-const WEBSITE_REVIEW_INQUIRY: InquiryType = "Free Website Review";
 
 function FieldError({ id, messages }: { id: string; messages?: string[] }) {
   if (!messages?.length) return null;
@@ -73,7 +72,8 @@ export function ContactForm({
           <p className="mt-3 leading-relaxed text-muted-foreground">
             I&rsquo;ll review what you sent and get back to you directly.
           </p>
-          {state.inquiryType === WEBSITE_REVIEW_INQUIRY && state.hasWebsite ? (
+          {state.inquiryType === FREE_WEBSITE_REVIEW_INQUIRY &&
+          state.hasWebsite ? (
             <p className="mt-3 leading-relaxed text-muted-foreground">
               I&rsquo;ll take a look at the website you provided before
               responding so I can come back with something useful.
@@ -94,9 +94,10 @@ export function ContactForm({
   // defaultValue; the Select falls back to whatever was submitted, so a
   // visitor who tripped a validation error doesn't have to pick again.
   const inquiryType = selectedInquiry || (values?.inquiryType ?? "");
+  const isWebsiteRequired = WEBSITE_REQUIRED_INQUIRY_TYPES.includes(inquiryType);
 
   const submitLabel =
-    inquiryType === WEBSITE_REVIEW_INQUIRY
+    inquiryType === FREE_WEBSITE_REVIEW_INQUIRY
       ? "Request My Website Review"
       : "Send My Request";
 
@@ -244,13 +245,17 @@ export function ContactForm({
 
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <Label htmlFor="website">Current Website</Label>
+          <Label htmlFor="website">
+            Current Website{" "}
+            {isWebsiteRequired ? <span aria-hidden="true">*</span> : null}
+          </Label>
           <Input
             id="website"
             name="website"
             type="url"
             autoComplete="url"
             placeholder="https://"
+            required={isWebsiteRequired}
             defaultValue={values?.website}
             aria-invalid={fieldErrors?.website ? true : undefined}
             aria-describedby={
@@ -262,7 +267,9 @@ export function ContactForm({
             <FieldError id="website-error" messages={fieldErrors.website} />
           ) : (
             <p id="website-hint" className="mt-1.5 text-sm text-muted-foreground">
-              If you don&rsquo;t have one yet, leave this blank.
+              {isWebsiteRequired
+                ? "I'll use this to prepare your website review."
+                : "If you don't have one yet, leave this blank."}
             </p>
           )}
         </div>
