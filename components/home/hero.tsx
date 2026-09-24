@@ -23,7 +23,7 @@ export function Hero() {
             <p className="max-w-xl text-lead text-muted-foreground">
               Rowlands Digital Works helps growing service businesses improve
               their websites, connect their technology, and build digital
-              solutions that support real business growth.
+              solutions that support customer acquisition and day-to-day operations.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
