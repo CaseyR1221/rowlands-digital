@@ -3,6 +3,11 @@
 import { z } from "zod";
 
 import {
+  sendInquiryNotification,
+  sendProspectConfirmation,
+} from "@/lib/email/contact-emails";
+import { siteConfig } from "@/lib/site";
+import {
   contactFormSchema,
   type ContactFormState,
   type ContactFormValuesInput,
@@ -12,6 +17,8 @@ const HONEYPOT_FIELD_NAME = "hp_company";
 
 const GENERIC_FORM_ERROR =
   "Something went wrong while processing your request. Please review the form and try again.";
+
+const DELIVERY_FORM_ERROR = `Something went wrong while sending your request. Please try again or email ${siteConfig.email} directly.`;
 
 const FORM_FIELDS = [
   "name",
@@ -58,19 +65,26 @@ export async function submitContactForm(
 
   const honeypotValue = formData.get(HONEYPOT_FIELD_NAME);
   if (typeof honeypotValue === "string" && honeypotValue.length > 0) {
-    // Likely an automated submission. Return the same success response a real
-    // visitor would get, without processing further, so the sender gets no
-    // signal that anything was different.
     return success;
   }
 
-  if (process.env.NODE_ENV === "development") {
-    console.log("[contact] validated submission", parsed.data);
+  try {
+    await sendInquiryNotification(parsed.data);
+  } catch (error) {
+    console.error("[contact] inquiry notification failed to send", error);
+    return {
+      status: "error",
+      fieldErrors: {},
+      formError: DELIVERY_FORM_ERROR,
+      values,
+    };
   }
 
-  // Email delivery service — NEXT TASK.
-  // Once Resend is configured, this is where the validated submission gets
-  // handed off, and success should only be returned after delivery succeeds.
+  try {
+    await sendProspectConfirmation(parsed.data);
+  } catch (error) {
+    console.error("[contact] confirmation email failed to send", error);
+  }
 
   return success;
 }
