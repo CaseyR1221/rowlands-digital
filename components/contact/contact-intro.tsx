@@ -7,7 +7,7 @@ export function ContactIntro() {
       </p>
 
       <h1 className="mt-5 text-balance text-headline font-semibold text-foreground">
-        Let&rsquo;s talk about what&rsquo;s not working.
+        Let&rsquo;s talk about your needs.
       </h1>
 
       <div className="mt-6 space-y-5 text-lead text-muted-foreground">
