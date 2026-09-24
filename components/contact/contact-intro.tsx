@@ -17,10 +17,10 @@ export function ContactIntro() {
           about what you&rsquo;re working with.
         </p>
         <p>
-          There&rsquo;s no intake process and no qualifying call to get past.
-          Send as much or as little detail as you have — the more specific you
-          can be about what isn&rsquo;t working, the more useful my response
-          will be.
+          You don&rsquo;t need to have everything figured out before reaching
+          out. Send as much or as little detail as you have — the more
+          specific you can be about what isn&rsquo;t working, the more useful
+          my response can be.
         </p>
       </div>
 
