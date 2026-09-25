@@ -4,6 +4,7 @@ import { Container } from "@/components/container";
 import type { ServiceArea } from "@/components/services/service-areas";
 import { SERVICE_AREAS } from "@/components/services/service-areas";
 import { Button } from "@/components/ui/button";
+import { contactHref } from "@/lib/contact-topic";
 import { cn } from "@/lib/utils";
 
 /**
@@ -58,7 +59,7 @@ export function ServiceSection({
 
             <div className="mt-8">
               <Button asChild size="lg">
-                <Link href="/contact">{area.ctaLabel}</Link>
+                <Link href={contactHref(area.ctaTopic)}>{area.ctaLabel}</Link>
               </Button>
             </div>
           </div>

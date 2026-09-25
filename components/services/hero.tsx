@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Container } from "@/components/container";
 import { SERVICE_AREAS } from "@/components/services/service-areas";
 import { Button } from "@/components/ui/button";
+import { contactHref } from "@/lib/contact-topic";
 import { siteConfig } from "@/lib/site";
 
 export function Hero() {
@@ -40,7 +41,9 @@ export function Hero() {
                 <Link href="/contact">Start a Conversation</Link>
               </Button>
               <Button asChild size="xl" variant="outline">
-                <Link href="/contact">Request a Free Website Review</Link>
+                <Link href={contactHref("free-website-review")}>
+                  Request a Free Website Review
+                </Link>
               </Button>
             </div>
 
@@ -56,7 +59,7 @@ export function Hero() {
           */}
           <nav aria-label="Service areas" className="lg:col-span-5">
             <div className="border border-border bg-surface p-6 sm:p-8">
-              <h2 className="text-sm font-medium text-foreground">
+              <h2 className="text-lg md:text-xl font-semibold text-foreground">
                 Four ways a project usually starts
               </h2>
               <ul className="mt-5 border-t border-border">
@@ -67,12 +70,12 @@ export function Hero() {
                   >
                     <Link
                       href={`#${area.id}`}
-                      className="flex items-baseline gap-4 py-4 text-foreground transition-colors hover:text-primary"
+                      className="flex items-baseline gap-4 py-4 text-accent transition-colors hover:text-primary"
                     >
                       <span className="w-6 shrink-0 text-sm font-semibold text-primary">
                         {area.number}
                       </span>
-                      <span className="font-medium">{area.title}</span>
+                      <span className="text-base md:text-lg font-semibold">{area.title}</span>
                     </Link>
                   </li>
                 ))}

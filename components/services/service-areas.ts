@@ -1,3 +1,5 @@
+import type { ContactTopic } from "@/lib/contact-topic";
+
 /**
  * The four core service areas, shared by the hero index, the overview section,
  * the detailed sections below them, and the page's Service structured data.
@@ -15,6 +17,8 @@ export type ServiceArea = {
   work: string[];
   goodFit: string;
   ctaLabel: string;
+  /** Preselects this section's intent in the contact form. */
+  ctaTopic: ContactTopic;
 };
 
 export const SERVICE_AREAS: ServiceArea[] = [
@@ -47,6 +51,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
     goodFit:
       "businesses that need a new professional website and want more than a prebuilt template.",
     ctaLabel: "Discuss a Website Project",
+    ctaTopic: "new-website",
   },
   {
     id: "website-redesign-growth",
@@ -77,6 +82,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
     goodFit:
       "businesses with an existing site that is technically functional but no longer effective.",
     ctaLabel: "Request a Website Review",
+    ctaTopic: "free-website-review",
   },
   {
     id: "custom-development-integrations",
@@ -106,6 +112,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
     goodFit:
       "businesses that have a clear operational or technical problem standard website platforms cannot solve cleanly.",
     ctaLabel: "Discuss a Custom Solution",
+    ctaTopic: "custom-development",
   },
   {
     id: "ongoing-technical-partnership",
@@ -135,5 +142,6 @@ export const SERVICE_AREAS: ServiceArea[] = [
     goodFit:
       "businesses that rely on their website or digital systems and want ongoing technical ownership without hiring an internal developer.",
     ctaLabel: "Ask About Ongoing Support",
+    ctaTopic: "ongoing-support",
   },
 ];

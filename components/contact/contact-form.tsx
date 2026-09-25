@@ -6,6 +6,7 @@ import { submitContactForm } from "@/app/contact/actions";
 import {
   FREE_WEBSITE_REVIEW_INQUIRY,
   WEBSITE_REQUIRED_INQUIRY_TYPES,
+  type InquiryType,
   inquiryTypes,
   initialContactFormState,
 } from "@/lib/validation/contact";
@@ -32,8 +33,12 @@ function FieldError({ id, messages }: { id: string; messages?: string[] }) {
 }
 
 export function ContactForm({
+  defaultInquiryType,
   whatHappensNext,
 }: {
+  // Resolved on the server from the `topic` query parameter, so a visitor who
+  // arrived from a specific call to action finds that option already chosen.
+  defaultInquiryType?: InquiryType;
   // Rendered by the page as a Server Component and passed through, so this
   // copy costs no client JavaScript and is ready the moment the form is sent.
   whatHappensNext: React.ReactNode;
@@ -42,7 +47,9 @@ export function ContactForm({
     submitContactForm,
     initialContactFormState,
   );
-  const [selectedInquiry, setSelectedInquiry] = useState("");
+  const [selectedInquiry, setSelectedInquiry] = useState(
+    defaultInquiryType ?? "",
+  );
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
   const errorAlertRef = useRef<HTMLDivElement>(null);
 

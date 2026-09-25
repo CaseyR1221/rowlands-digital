@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
+import { contactHref } from "@/lib/contact-topic";
 
 export function WebsiteReviewCta() {
   return (
@@ -22,7 +23,9 @@ export function WebsiteReviewCta() {
 
             <div className="mt-8">
               <Button asChild size="xl">
-                <Link href="/contact">Request a Free Website Review</Link>
+                <Link href={contactHref("free-website-review")}>
+                  Request a Free Website Review
+                </Link>
               </Button>
             </div>
 

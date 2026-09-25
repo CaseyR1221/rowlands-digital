@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
+import { contactHref } from "@/lib/contact-topic";
 
 export function FinalCta() {
   return (
@@ -23,7 +24,9 @@ export function FinalCta() {
             <Link href="/contact">Start a Conversation</Link>
           </Button>
           <Button asChild size="xl" variant="outline">
-            <Link href="/contact">Request a Website Review</Link>
+            <Link href={contactHref("free-website-review")}>
+              Request a Website Review
+            </Link>
           </Button>
         </div>
       </Container>
