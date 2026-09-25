@@ -13,7 +13,7 @@ export function FounderSection() {
             once one exists; the surrounding layout does not need to change.
           */}
           <div className="lg:col-span-4">
-            <div className="flex aspect-[4/5] max-w-[14rem] items-center justify-center border border-border bg-accent-soft">
+            <div className="flex aspect-4/5 max-w-14rem items-center justify-center border border-border bg-accent-soft">
               <span
                 aria-hidden="true"
                 className="text-6xl font-semibold tracking-tight text-primary"
