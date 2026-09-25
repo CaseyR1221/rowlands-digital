@@ -82,7 +82,7 @@ export const SERVICE_AREAS: ServiceArea[] = [
     goodFit:
       "businesses with an existing site that is technically functional but no longer effective.",
     ctaLabel: "Request a Website Review",
-    ctaTopic: "free-website-review",
+    ctaTopic: "website-redesign",
   },
   {
     id: "custom-development-integrations",

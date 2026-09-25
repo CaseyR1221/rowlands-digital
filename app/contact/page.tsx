@@ -26,10 +26,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Reading the query string opts this route into dynamic rendering. That is
-// the point: the preselected inquiry type ships in the server-rendered HTML
-// instead of being applied after hydration, and the page fetches nothing, so
-// rendering it per request costs essentially nothing.
 export default async function ContactPage({
   searchParams,
 }: PageProps<"/contact">) {
@@ -46,8 +42,7 @@ export default async function ContactPage({
 
             <div className="mt-12">
               {/* The process only appears once the form is sent, so it reaches
-                  the person who actually submitted rather than competing with
-                  the form for attention beforehand. */}
+                  the person who actually submitted */}
               <ContactForm
                 defaultInquiryType={defaultInquiryType}
                 whatHappensNext={<ContactProcess />}

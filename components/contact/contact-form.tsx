@@ -36,11 +36,7 @@ export function ContactForm({
   defaultInquiryType,
   whatHappensNext,
 }: {
-  // Resolved on the server from the `topic` query parameter, so a visitor who
-  // arrived from a specific call to action finds that option already chosen.
   defaultInquiryType?: InquiryType;
-  // Rendered by the page as a Server Component and passed through, so this
-  // copy costs no client JavaScript and is ready the moment the form is sent.
   whatHappensNext: React.ReactNode;
 }) {
   const [state, formAction, pending] = useActionState(
@@ -53,9 +49,6 @@ export function ContactForm({
   const successHeadingRef = useRef<HTMLHeadingElement>(null);
   const errorAlertRef = useRef<HTMLDivElement>(null);
 
-  // Move focus to whichever outcome just rendered. Without this the submit
-  // button's disabled state drops focus to <body>, and a visitor who submitted
-  // from the bottom of a long form sees nothing change.
   useEffect(() => {
     if (state.status === "success") {
       successHeadingRef.current?.focus();
@@ -95,11 +88,6 @@ export function ContactForm({
 
   const fieldErrors = state.status === "error" ? state.fieldErrors : undefined;
   const values = state.status === "error" ? state.values : undefined;
-
-  // React resets the form once the action returns, which clears this
-  // controlled Select. The text inputs come back from `values` via
-  // defaultValue; the Select falls back to whatever was submitted, so a
-  // visitor who tripped a validation error doesn't have to pick again.
   const inquiryType = selectedInquiry || (values?.inquiryType ?? "");
   const isWebsiteRequired = WEBSITE_REQUIRED_INQUIRY_TYPES.includes(inquiryType);
 
@@ -126,10 +114,6 @@ export function ContactForm({
         Fields marked <span aria-hidden="true">*</span> are required.
       </p>
 
-      {/* Honeypot — hidden from sighted and keyboard users. Real visitors never
-          see or fill this; automated form-fillers often do. It carries no label
-          and an autocomplete token password managers won't match, so a visitor's
-          saved identity never lands in it and gets their message discarded. */}
       <div
         aria-hidden="true"
         className="absolute left-[-9999px] top-0 h-0 w-0 overflow-hidden"
