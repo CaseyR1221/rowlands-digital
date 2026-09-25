@@ -38,9 +38,6 @@ export function Hero() {
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <Button asChild size="xl">
-                <Link href="/contact">Start a Conversation</Link>
-              </Button>
-              <Button asChild size="xl" variant="outline">
                 <Link href={contactHref("free-website-review")}>
                   Request a Free Website Review
                 </Link>
