@@ -1,10 +1,7 @@
 import { Hero } from "@/components/home/hero";
 import { Positioning } from "@/components/home/positioning";
 import { ServicesOverview } from "@/components/home/services-overview";
-import { IndustryExperience } from "@/components/home/industry-experience";
-import { WhyWorkTogether } from "@/components/home/why-work-together";
 import { FounderSection } from "@/components/home/founder-section";
-import { Process } from "@/components/home/process";
 import { WebsiteReviewCta } from "@/components/home/website-review-cta";
 import { FinalCta } from "@/components/home/final-cta";
 import { siteConfig } from "@/lib/site";
@@ -36,11 +33,8 @@ export default function HomePage() {
       />
       <Hero />
       <Positioning />
-      <ServicesOverview />
-      <IndustryExperience />
-      <WhyWorkTogether />
       <FounderSection />
-      <Process />
+      <ServicesOverview />
       <WebsiteReviewCta />
       <FinalCta />
     </main>

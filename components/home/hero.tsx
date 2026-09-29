@@ -13,9 +13,15 @@ export function Hero() {
           Web Development &amp; Digital Solutions
         </p>
 
-        <h1 className="mt-6 max-w-4xl text-balance text-display font-semibold text-foreground">
-          Better websites. Smarter digital systems. A technical partner you can
-          actually reach.
+        {/*
+          Below `sm`, each line is fluidly sized (via a fitted clamp, not the
+          shared --text-display token) to stay on one line at any phone
+          width; `sm:` restores the original fixed display size and wrapping.
+        */}
+        <h1 className="mt-6 max-w-4xl text-[clamp(1.1rem,-0.2rem+6.2vw,1.6rem)] leading-snug font-semibold tracking-tight whitespace-nowrap text-foreground sm:text-display sm:whitespace-normal">
+          <span className="block">Better websites.</span>
+          <span className="mt-2 block sm:mt-0">Smarter digital systems.</span>
+          <span className="mt-2 block sm:mt-0">A partner you can actually reach.</span>
         </h1>
 
         <div className="mt-12 grid gap-12 lg:mt-14 lg:grid-cols-12 lg:items-center lg:gap-16">
