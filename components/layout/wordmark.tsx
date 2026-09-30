@@ -17,7 +17,7 @@ export function Wordmark({ className }: { className?: string }) {
         src={logo}
         alt="Rowlands Digital Works"
         priority
-        className="h-10 w-auto lg:h-12"
+        className="h-16 w-auto lg:h-20"
       />
     </Link>
   );

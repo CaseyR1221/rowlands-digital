@@ -2,7 +2,6 @@ import { Hero } from "@/components/home/hero";
 import { Positioning } from "@/components/home/positioning";
 import { ServicesOverview } from "@/components/home/services-overview";
 import { FounderSection } from "@/components/home/founder-section";
-import { WebsiteReviewCta } from "@/components/home/website-review-cta";
 import { FinalCta } from "@/components/home/final-cta";
 import { siteConfig } from "@/lib/site";
 
@@ -35,7 +34,6 @@ export default function HomePage() {
       <FounderSection />
       <Positioning />
       <ServicesOverview />
-      <WebsiteReviewCta />
       <FinalCta />
     </main>
   );
