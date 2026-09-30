@@ -32,8 +32,8 @@ export default function HomePage() {
         }}
       />
       <Hero />
-      <Positioning />
       <FounderSection />
+      <Positioning />
       <ServicesOverview />
       <WebsiteReviewCta />
       <FinalCta />

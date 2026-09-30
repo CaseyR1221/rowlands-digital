@@ -1,7 +1,7 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import { Container } from "@/components/container";
-import { Button } from "@/components/ui/button";
+import { Container } from '@/components/container';
+import { Button } from '@/components/ui/button';
 
 export function WebsiteReviewCta() {
   return (
@@ -14,21 +14,18 @@ export function WebsiteReviewCta() {
 
           <div className="lg:col-span-7">
             <p className="max-w-xl text-lead text-muted-foreground">
-              Start with a website review. I&rsquo;ll take a look at your current
-              site and identify a few of the highest-impact opportunities around
-              usability, conversion, mobile experience, and technical quality.
+              Start with a website review. I&rsquo;ll take a look at your
+              current site and identify a few of the highest-impact
+              opportunities around usability, conversion, mobile experience, and
+              technical quality. No generic automated score. No obligation. Just
+              a focused review of your actual website.
             </p>
 
-            <div className="mt-8">
+            <div className="flex items-center md:justify-start justify-center mt-8">
               <Button asChild size="xl">
                 <Link href="/contact">Request a Free Website Review</Link>
               </Button>
             </div>
-
-            <p className="mt-6 max-w-md text-sm leading-relaxed text-muted-foreground">
-              No generic automated score. No obligation. Just a focused review of
-              your actual website.
-            </p>
           </div>
         </div>
       </Container>

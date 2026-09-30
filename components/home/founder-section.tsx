@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Container } from "@/components/container";
 import { Button } from "@/components/ui/button";
+import headshot from "@/public/casey-rowlands.jpg";
 
 export function FounderSection() {
   return (
@@ -16,18 +18,15 @@ export function FounderSection() {
           The developer behind your project
         </h2>
 
-        <figure className="mt-8 grid border border-border bg-surface sm:mt-10 md:grid-cols-12">
-          {/*
-            Portrait placeholder. Swap this block for a fill next/image once a
-            headshot exists; the grid cell already sets the shape and height.
-          */}
-          <div className="flex aspect-4/3 items-center justify-center bg-accent-soft sm:aspect-16/9 md:col-span-5 md:aspect-auto md:min-h-full">
-            <span
-              aria-hidden="true"
-              className="text-6xl font-semibold tracking-tight text-primary/40"
-            >
-              CR
-            </span>
+        <figure className="mt-8 grid overflow-hidden rounded-2xl border border-border bg-surface sm:mt-10 md:grid-cols-12">
+          <div className="relative aspect-4/3 sm:aspect-video md:col-span-5 md:aspect-auto md:min-h-full">
+            <Image
+              src={headshot}
+              alt="Casey Rowlands, founder of Rowlands Digital Works"
+              fill
+              sizes="(min-width: 768px) 40vw, 100vw"
+              className="object-cover object-top"
+            />
           </div>
 
           <div className="flex flex-col border-t border-border md:col-span-7 md:border-t-0 md:border-l">

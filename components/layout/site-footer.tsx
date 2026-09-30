@@ -1,7 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Container } from "@/components/container";
 import { mainNav, siteConfig } from "@/lib/site";
+import footerLogo from "@/public/logo-dark.png";
 
 export function SiteFooter() {
   return (
@@ -9,10 +11,11 @@ export function SiteFooter() {
       <Container className="py-14 lg:py-20">
         <div className="grid gap-12 md:grid-cols-[minmax(0,1fr)_auto] md:gap-20">
           <div className="max-w-sm">
-            <p className="text-base font-semibold tracking-tight text-foreground">
-              Rowlands
-              <span className="font-normal text-muted-foreground"> Digital Works</span>
-            </p>
+            <Image
+              src={footerLogo}
+              alt="Rowlands Digital Works"
+              className="h-10 w-auto"
+            />
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
               {siteConfig.tagline}
             </p>

@@ -16,7 +16,7 @@ export function SystemDiagram() {
       viewBox="0 0 360 264"
       role="img"
       aria-label="Diagram: search, maps and referral traffic flows into a website, which connects to booking, CRM and analytics systems."
-      className="h-auto w-full max-w-[24rem] font-sans"
+      className="h-auto w-full max-w-md font-sans sm:max-w-lg lg:max-w-none"
     >
       <g stroke="var(--border)" strokeWidth="1" fill="none">
         <path d="M52 34 V52 H308 V34" />
