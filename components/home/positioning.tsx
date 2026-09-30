@@ -1,15 +1,25 @@
-import { Container } from "@/components/container";
+import { MousePointerClick, Workflow, Wrench, type LucideIcon } from "lucide-react";
 
-const FOCUS_AREAS = [
+import { Container } from "@/components/container";
+import { Card, CardContent } from "@/components/ui/card";
+
+const FOCUS_AREAS: {
+  icon: LucideIcon;
+  title: string;
+  body: string;
+}[] = [
   {
+    icon: MousePointerClick,
     title: "Attract & convert",
     body: "Create clearer customer journeys that make it easier for visitors to understand your business and take the next step.",
   },
   {
+    icon: Workflow,
     title: "Connect & automate",
     body: "Connect websites, forms, CRMs, scheduling platforms, analytics, and other systems so information moves where it needs to go.",
   },
   {
+    icon: Wrench,
     title: "Improve & support",
     body: "Improve performance, maintainability, analytics, and reliability — with an experienced developer available when something needs attention.",
   },
@@ -38,18 +48,22 @@ export function Positioning() {
           </div>
         </div>
 
-        <ul className="mt-14 grid divide-y divide-border border-y border-border sm:mt-16 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
-          {FOCUS_AREAS.map((area) => (
-            <li
-              key={area.title}
-              className="py-8 lg:px-8 lg:py-10 lg:first:pl-0 lg:last:pr-0"
-            >
-              <h3 className="text-title font-semibold text-foreground">
-                {area.title}
-              </h3>
-              <p className="mt-3 leading-relaxed text-muted-foreground">
-                {area.body}
-              </p>
+        <ul className="mt-14 grid gap-5 sm:mt-16 sm:grid-cols-3">
+          {FOCUS_AREAS.map(({ icon: Icon, title, body }) => (
+            <li key={title}>
+              <Card className="h-full rounded-2xl border border-border ring-0 [--card-spacing:--spacing(6)] sm:[--card-spacing:--spacing(8)]">
+                <CardContent>
+                  <div className="flex size-11 items-center justify-center rounded-lg bg-accent-soft">
+                    <Icon aria-hidden="true" className="size-5 text-accent" />
+                  </div>
+                  <h3 className="mt-5 text-title font-semibold text-foreground">
+                    {title}
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-muted-foreground">
+                    {body}
+                  </p>
+                </CardContent>
+              </Card>
             </li>
           ))}
         </ul>

@@ -8,19 +8,35 @@ export function Hero() {
   return (
     <section className="border-b border-border">
       <Container className="py-14 sm:py-20 lg:py-24">
-        <p className="flex items-center gap-3 text-sm font-medium text-primary">
-          <span aria-hidden="true" className="h-px w-8 bg-accent" />
-          Web Development &amp; Digital Solutions
-        </p>
-
-        <h1 className="mt-6 max-w-4xl text-balance text-display font-semibold text-foreground">
-          Better websites. Smarter digital systems. A technical partner you can
-          actually reach.
-        </h1>
-
-        <div className="mt-12 grid gap-12 lg:mt-14 lg:grid-cols-12 lg:items-center lg:gap-16">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
           <div className="lg:col-span-6">
-            <p className="max-w-xl text-lead text-muted-foreground">
+            <p className="flex items-center gap-3 text-sm font-medium text-primary">
+              <span aria-hidden="true" className="h-px w-8 bg-accent" />
+              Web Development &amp; Digital Solutions
+            </p>
+
+            {/*
+              Below `sm`, each line is fluidly sized (via a fitted clamp, not
+              the shared --text-display token) to stay on one line at any
+              phone width; `sm:` restores the original fixed display size and
+              wrapping. Now that the heading lives in a 6-col track instead of
+              the full container, `lg:` re-fits the size (font-size only) to
+              the ~440-504px column so each phrase still holds one line.
+              `max-sm:` scopes the mobile leading/tracking so they don't leak
+              into --tw-leading/--tw-tracking at sm+ (text-display's own
+              utility reads those custom properties before its own fallback,
+              so an always-on leading/tracking class would silently override
+              it at every breakpoint).
+            */}
+            <h1 className="mt-6 max-w-4xl text-[clamp(1.1rem,-0.2rem+6.2vw,1.6rem)] max-sm:leading-snug font-semibold max-sm:tracking-tight whitespace-nowrap text-foreground sm:text-display sm:whitespace-normal lg:text-[clamp(1.75rem,-0.25rem+3.125vw,2rem)]">
+              <span className="block">Better websites.</span>
+              <span className="mt-2 block sm:mt-0">Smarter digital systems.</span>
+              <span className="mt-2 block sm:mt-0">
+                A partner you can actually reach.
+              </span>
+            </h1>
+
+            <p className="mt-6 max-w-xl text-lead text-muted-foreground">
               Rowlands Digital Works helps growing service businesses improve
               their websites, connect their technology, and build digital
               solutions that support customer acquisition and day-to-day operations.
@@ -36,15 +52,17 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex justify-center lg:col-span-6 lg:justify-end">
+          {/*
+            The diagram is inline SVG (vector), so scaling it up costs no
+            resolution. It's centered and capped at a modest width pre-`lg`
+            (single-column, stacked below the text); at `lg` the cap lifts so
+            it fills the right-hand column, itself bounded by the 12-col grid
+            and the Container's max width.
+          */}
+          <div className="flex items-center justify-center lg:col-span-6">
             <SystemDiagram />
           </div>
         </div>
-
-        <p className="mt-14 max-w-2xl border-t border-border pt-7 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Strategy, design, development, and ongoing support — directly from the
-          developer responsible for your project.
-        </p>
       </Container>
     </section>
   );

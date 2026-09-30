@@ -1,4 +1,17 @@
-import { twMerge } from "tailwind-merge";
+import { extendTailwindMerge } from "tailwind-merge";
+
+/*
+ * The fluid display scale lives in globals.css, so tailwind-merge has no way to
+ * know `text-title` is a font size. Left unregistered it reads as a text color
+ * and gets dropped whenever a colour appears later in the same `cn()` call.
+ */
+const twMerge = extendTailwindMerge({
+  extend: {
+    classGroups: {
+      "font-size": [{ text: ["display", "headline", "title", "lead"] }],
+    },
+  },
+});
 
 type ClassValue =
   | string

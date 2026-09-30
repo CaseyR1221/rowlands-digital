@@ -1,16 +1,24 @@
+import Image from "next/image";
 import Link from "next/link";
+
 import { cn } from "@/lib/utils";
+import logo from "@/public/logo.png";
 
 export function Wordmark({ className }: { className?: string }) {
   return (
     <Link
       href="/"
       className={cn(
-        "text-[0.9375rem] font-semibold tracking-tight text-foreground transition-colors hover:text-primary sm:text-base",
+        "shrink-0 transition-opacity hover:opacity-80",
         className,
       )}
     >
-      Rowlands<span className="font-normal text-muted-foreground"> Digital Works</span>
+      <Image
+        src={logo}
+        alt="Rowlands Digital Works"
+        priority
+        className="h-16 w-auto lg:h-20"
+      />
     </Link>
   );
 }

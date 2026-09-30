@@ -9,7 +9,7 @@ import { mainNav } from "@/lib/site";
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background">
-      <Container className="flex h-16 items-center justify-between gap-6 lg:h-20">
+      <Container className="flex h-16 items-center justify-between gap-6 lg:h-20 py-10 md:py-12">
         <Wordmark />
 
         <nav aria-label="Main" className="hidden lg:block">
@@ -18,7 +18,7 @@ export function SiteHeader() {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="text-lg text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {item.label}
                 </Link>
