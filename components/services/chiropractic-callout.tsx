@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Container } from "@/components/container";
-import { ImagePlaceholder } from "@/components/image-placeholder";
+import { ImageWithFallback } from "@/components/image-with-fallback";
 import { Button } from "@/components/ui/button";
 
 export function ChiropracticCallout() {
@@ -16,7 +16,7 @@ export function ChiropracticCallout() {
             </p>
 
             <h2 className="mt-5 text-balance text-headline font-semibold text-foreground">
-              Looking for chiropractic-specific web development?
+              Looking for chiropractic-specific services?
             </h2>
 
             <p className="mt-5 max-w-xl text-lead text-muted-foreground">
@@ -35,9 +35,12 @@ export function ChiropracticCallout() {
           </div>
 
           <div className="lg:col-span-6">
-            <ImagePlaceholder
+            <ImageWithFallback
+              src="/services-chiropractic.jpg"
+              alt="A chiropractic practice website shown on a laptop and phone on a desk, beside a sketchbook of page wireframes and a framed spine illustration"
+              sizes="(min-width: 1024px) 50vw, 100vw"
               concept="A modern chiropractic practice and the digital patient journey: website, mobile booking, appointments, analytics, or CRM"
-              className="aspect-4/3"
+              className="aspect-3/2"
             />
           </div>
         </div>

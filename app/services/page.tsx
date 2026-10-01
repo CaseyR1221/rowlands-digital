@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { ChiropracticCallout } from "@/components/services/chiropractic-callout";
 import { FinalCta } from "@/components/services/final-cta";
 import { Hero } from "@/components/services/hero";
-import { HowServicesConnect } from "@/components/services/how-services-connect";
 import { SERVICE_AREAS } from "@/components/services/service-areas";
 import { ServiceOverview } from "@/components/services/service-overview";
 import { ServiceSection } from "@/components/services/service-section";
@@ -73,7 +72,6 @@ export default function ServicesPage() {
       {SERVICE_AREAS.map((area, index) => (
         <ServiceSection key={area.id} area={area} index={index} />
       ))}
-      <HowServicesConnect />
       <WorkTogether />
       <ChiropracticCallout />
       <FinalCta />

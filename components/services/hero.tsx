@@ -17,13 +17,8 @@ export function Hero() {
               Services
             </p>
 
-            {/*
-              Steps down to the headline size at `lg`, where the heading shares
-              the row with the image: at full display size the seven-column
-              track would break it across five or six lines.
-            */}
             <h1 className="mt-6 max-w-4xl text-balance text-display font-semibold text-foreground lg:text-headline">
-              Websites, custom development, and digital systems built around
+              Custom digital solutions built around
               how your business actually works.
             </h1>
 
