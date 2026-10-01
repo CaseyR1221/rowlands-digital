@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { Container } from "@/components/container";
+import { ListMarker } from "@/components/list-marker";
 import { Button } from "@/components/ui/button";
 
 const PRACTICE_AREAS = [
@@ -56,12 +57,9 @@ export function IndustryExperience() {
               {PRACTICE_AREAS.map((area) => (
                 <li
                   key={area}
-                  className="flex items-baseline gap-3 border-t border-border py-4 text-foreground"
+                  className="flex items-start gap-3 border-t border-border py-4 text-foreground"
                 >
-                  <span
-                    aria-hidden="true"
-                    className="mt-2 h-px w-3 shrink-0 bg-accent"
-                  />
+                  <ListMarker />
                   {area}
                 </li>
               ))}
