@@ -1,4 +1,5 @@
 import { Container } from "@/components/container";
+import { ListMarker } from "@/components/list-marker";
 import { SectionHeading } from "@/components/section-heading";
 
 const CAPABILITY_GROUPS = [
@@ -115,12 +116,9 @@ export function Capabilities() {
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="flex items-baseline gap-3 border-t border-border py-3 text-foreground first:border-t-0 sm:nth-2:border-t-0"
+                      className="flex items-start gap-3 border-t border-border py-3 text-foreground first:border-t-0 sm:nth-2:border-t-0"
                     >
-                      <span
-                        aria-hidden="true"
-                        className="mt-2 h-px w-3 shrink-0 bg-accent"
-                      />
+                      <ListMarker />
                       {item}
                     </li>
                   ))}

@@ -1,10 +1,10 @@
 import type { ContactTopic } from "@/lib/contact-topic";
 
 /**
- * The four core service areas, shared by the hero index, the overview section,
- * the detailed sections below them, and the page's Service structured data.
- * Keeping them in one place means the numbering and anchors can never drift
- * apart from the sections they point at.
+ * The four core service areas, shared by the overview cards, the detailed
+ * sections below them, and the page's Service structured data. Keeping them in
+ * one place means the numbering and anchors can never drift apart from the
+ * sections they point at.
  */
 export type ServiceArea = {
   id: string;
@@ -13,12 +13,18 @@ export type ServiceArea = {
   descriptor: string;
   summary: string;
   body: string;
-  workLabel: string;
+  /** Grouped capabilities: related items share a line rather than a bullet each. */
   work: string[];
-  goodFit: string;
   ctaLabel: string;
   /** Preselects this section's intent in the contact form. */
   ctaTopic: ContactTopic;
+  /**
+   * Brief for the custom image. Shown as a placeholder until `image` exists,
+   * and again if the image ever fails to load.
+   */
+  imageConcept: string;
+  /** Finished artwork for this section, once it has been made. 4:5 portrait. */
+  image?: { src: string; alt: string };
 };
 
 export const SERVICE_AREAS: ServiceArea[] = [
@@ -28,30 +34,25 @@ export const SERVICE_AREAS: ServiceArea[] = [
     title: "Website Strategy & Development",
     descriptor: "Build a stronger digital foundation from the start.",
     summary:
-      "A new website planned, designed, and built around your customers and how the business actually runs.",
-    body: "For businesses that need a new website or are replacing something that no longer represents the quality of the business, Rowlands Digital Works handles the project from planning through launch.",
-    workLabel: "Focus areas may include",
+      "A new website planned and built around your customers and how the business actually runs.",
+    body: "For businesses that need a new website, or are replacing one that no longer reflects the quality of the business. I handle the project from planning through launch, built around your customers rather than a prebuilt template.",
     work: [
-      "Discovery and project strategy",
-      "Information architecture",
-      "Customer journey planning",
-      "Responsive design",
+      "Discovery, customer journeys, and information architecture",
+      "Responsive web design",
       "Custom frontend development",
-      "Content structure",
-      "CMS implementation where appropriate",
-      "Contact and lead forms",
-      "Booking and scheduling integrations",
-      "Analytics setup",
-      "Technical SEO foundations",
-      "Accessibility fundamentals",
-      "Performance optimization",
-      "Launch and deployment",
-      "Post-launch support",
+      "Content structure and CMS implementation",
+      "Forms, booking, and lead capture",
+      "Analytics and technical SEO",
+      "Performance and accessibility",
+      "Deployment and post-launch support",
     ],
-    goodFit:
-      "businesses that need a new professional website and want more than a prebuilt template.",
     ctaLabel: "Discuss a Website Project",
     ctaTopic: "new-website",
+    imageConcept: "Wireframe → finished desktop site → responsive mobile site",
+    image: {
+      src: "/services-website-strategy.jpg",
+      alt: "Scattered content pieces being organized into a layered page structure, then assembled into a finished website",
+    },
   },
   {
     id: "website-redesign-growth",
@@ -61,28 +62,24 @@ export const SERVICE_AREAS: ServiceArea[] = [
       "Improve the site you already have — or rebuild the parts holding the business back.",
     summary:
       "Targeted improvements or a full modernization of a site that still works but no longer performs.",
-    body: "Established businesses often outgrow their websites gradually. The site may still function, but the customer journey becomes unclear, the technology becomes difficult to manage, or the experience no longer matches the business.",
-    workLabel: "Potential work may include",
+    body: "Established businesses often outgrow their websites gradually. The site still works, but the customer journey is unclear, the technology is hard to manage, or it no longer matches the business. Sometimes that calls for a rebuild; often targeted improvements are enough.",
     work: [
       "Website and UX review",
-      "Conversion-path improvements",
-      "Stronger calls to action",
+      "Conversion paths and calls to action",
       "Mobile experience improvements",
-      "Navigation and information architecture",
+      "Navigation, service, and location-page structure",
       "Redesign and modernization",
-      "Service and location-page structure",
-      "Content migration",
-      "Performance improvements",
-      "Technical SEO",
-      "Analytics and conversion tracking",
-      "Redirect strategy",
-      "CMS improvements",
-      "Third-party integrations",
+      "Content migration and redirect strategy",
+      "Performance, technical SEO, and conversion tracking",
+      "CMS improvements and third-party integrations",
     ],
-    goodFit:
-      "businesses with an existing site that is technically functional but no longer effective.",
     ctaLabel: "Request a Website Review",
     ctaTopic: "website-redesign",
+    imageConcept: "Before-and-after website modernization",
+    image: {
+      src: "/services-website-redesign.jpg",
+      alt: "An outdated, faded website breaking apart and rebuilding into a modern site, with growth charts and analytics rising beside it",
+    },
   },
   {
     id: "custom-development-integrations",
@@ -91,28 +88,25 @@ export const SERVICE_AREAS: ServiceArea[] = [
     descriptor: "When the problem goes beyond a standard website.",
     summary:
       "Custom applications, internal tools, and connections between the systems a business already runs on.",
-    body: "Sometimes the real issue is behind the pages: systems that do not communicate, repetitive manual work, missing functionality, or a process that cannot be handled well by an off-the-shelf tool.",
-    workLabel: "Potential work may include",
+    body: "Sometimes the real issue is behind the pages: systems that don’t talk to each other, repetitive manual work, or a process no off-the-shelf tool handles well.",
     work: [
-      "Custom web applications",
-      "Internal tools",
-      "Dashboards",
-      "API development",
-      "Third-party API integrations",
-      "CRM integrations",
-      "Booking-system integrations",
-      "Payment integrations",
+      "Custom web applications and CMS functionality",
+      "Internal tools and dashboards",
+      "API development and third-party integrations",
+      "CRM, booking, and payment integrations",
       "Form and lead-routing workflows",
-      "Automated email or SMS workflows",
-      "Data synchronization",
-      "Custom CMS functionality",
-      "Business-process automation",
-      "AI-enabled workflows where they genuinely improve the process",
+      "Automated email and SMS workflows",
+      "Data synchronization and process automation",
+      "AI-enabled workflows where they genuinely help",
     ],
-    goodFit:
-      "businesses that have a clear operational or technical problem standard website platforms cannot solve cleanly.",
     ctaLabel: "Discuss a Custom Solution",
     ctaTopic: "custom-development",
+    imageConcept:
+      "Connected system: website, CRM, booking, payments, analytics, APIs, and automation",
+    image: {
+      src: "/services-custom-development.jpg",
+      alt: "A central custom application connected to a database, email, calendar, and location data on one side, and CRM and analytics tools on the other, with a checklist of API integration, custom functionality, third-party services, and automations",
+    },
   },
   {
     id: "ongoing-technical-partnership",
@@ -120,28 +114,23 @@ export const SERVICE_AREAS: ServiceArea[] = [
     title: "Ongoing Technical Partnership",
     descriptor: "Someone technical to call after the project launches.",
     summary:
-      "Continued maintenance, improvements, and technical guidance from the developer who built the work.",
-    body: "A website or digital system is rarely finished forever. Platforms change, integrations break, campaigns create new needs, and businesses evolve. Ongoing support gives clients direct access to someone who already understands the technical environment.",
-    workLabel: "Potential support may include",
+      "Maintenance, improvements, and technical guidance from the developer who built the work.",
+    body: "Platforms change, integrations break, and businesses evolve. Ongoing support gives you direct access to someone who already understands your technical environment, without hiring an internal developer.",
     work: [
-      "Website maintenance",
-      "Dependency updates",
-      "Technical monitoring",
-      "Performance reviews",
-      "Analytics support",
-      "Conversion tracking",
-      "Small development requests",
-      "Landing pages",
-      "Integrations",
-      "Troubleshooting",
-      "CMS support",
-      "Technical consulting",
-      "Ongoing optimization",
-      "Development backlog support",
+      "Website maintenance and dependency updates",
+      "Technical monitoring and troubleshooting",
+      "Performance reviews and ongoing optimization",
+      "Analytics and conversion-tracking support",
+      "Small development requests and landing pages",
+      "Integration and CMS support",
+      "Technical consulting and backlog planning",
     ],
-    goodFit:
-      "businesses that rely on their website or digital systems and want ongoing technical ownership without hiring an internal developer.",
     ctaLabel: "Ask About Ongoing Support",
     ctaTopic: "ongoing-support",
+    imageConcept: "Casey working on or providing ongoing technical support",
+    image: {
+      src: "/services-ongoing-partnership.jpg",
+      alt: "A continuous improvement cycle surrounded by icons for monitoring, analytics, hosting, security, code, support, and updates",
+    },
   },
 ];

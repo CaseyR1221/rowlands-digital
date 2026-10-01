@@ -4,12 +4,10 @@ import { ChiropracticCallout } from "@/components/services/chiropractic-callout"
 import { FinalCta } from "@/components/services/final-cta";
 import { Hero } from "@/components/services/hero";
 import { HowServicesConnect } from "@/components/services/how-services-connect";
-import { Process } from "@/components/services/process";
-import { ProjectStandards } from "@/components/services/project-standards";
 import { SERVICE_AREAS } from "@/components/services/service-areas";
 import { ServiceOverview } from "@/components/services/service-overview";
 import { ServiceSection } from "@/components/services/service-section";
-import { WebsiteReviewCta } from "@/components/services/website-review-cta";
+import { WorkTogether } from "@/components/services/work-together";
 import { siteConfig } from "@/lib/site";
 
 const title = "Web Development Services";
@@ -76,10 +74,8 @@ export default function ServicesPage() {
         <ServiceSection key={area.id} area={area} index={index} />
       ))}
       <HowServicesConnect />
-      <ProjectStandards />
-      <Process />
+      <WorkTogether />
       <ChiropracticCallout />
-      <WebsiteReviewCta />
       <FinalCta />
     </main>
   );
