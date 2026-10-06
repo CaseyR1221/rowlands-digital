@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -50,9 +48,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         >
           Skip to main content
         </a>
-        <SiteHeader />
         {children}
-        <SiteFooter />
       </body>
     </html>
   );

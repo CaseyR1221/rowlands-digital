@@ -2,7 +2,7 @@
 
 import { useActionState, useEffect, useRef, useState } from "react";
 
-import { submitContactForm } from "@/app/contact/actions";
+import { submitContactForm } from "@/app/(site)/contact/actions";
 import {
   FREE_WEBSITE_REVIEW_INQUIRY,
   WEBSITE_REQUIRED_INQUIRY_TYPES,
