@@ -4,6 +4,7 @@ import { ChiropracticExperience } from "@/components/about/chiropractic-experien
 import { DirectRelationship } from "@/components/about/direct-relationship";
 import { Experience } from "@/components/about/experience";
 import { FinalCta } from "@/components/about/final-cta";
+import { FractionalPartnership } from "@/components/about/fractional-partnership";
 import { Hero } from "@/components/about/hero";
 import { Principles } from "@/components/about/principles";
 import { Story } from "@/components/about/story";
@@ -12,7 +13,7 @@ import { siteConfig } from "@/lib/site";
 const title = "About Casey Rowlands";
 
 const description =
-  "Meet Casey Rowlands, founder and developer at Rowlands Digital Works. Learn about the experience and approach behind web development, integrations, and digital solutions for growing businesses.";
+  "Meet Casey Rowlands, full-stack developer and founder of Rowlands Digital Works. Learn how Casey works as a technical partner on websites, integrations, and digital systems for growing businesses.";
 
 export const metadata: Metadata = {
   title,
@@ -28,8 +29,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Only facts this project already holds: name, role, the business, and the
-// published headshot. No address, credentials, dates, or social profiles.
+// Only facts this project already holds: name, role, the business, the
+// published headshot, and the LinkedIn profile. No address, credentials, or dates.
 const profileSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
@@ -39,6 +40,7 @@ const profileSchema = {
     name: siteConfig.founder,
     jobTitle: "Founder & Developer",
     image: `${siteConfig.url}/casey-rowlands.jpg`,
+    sameAs: [siteConfig.linkedinUrl],
     worksFor: {
       "@type": "Organization",
       name: siteConfig.name,
@@ -62,6 +64,7 @@ export default function AboutPage() {
       <Principles />
       <DirectRelationship />
       <ChiropracticExperience />
+      <FractionalPartnership />
       <FinalCta />
     </main>
   );

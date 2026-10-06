@@ -12,13 +12,13 @@ export function ContactIntro() {
 
       <div className="mt-6 space-y-5 text-lead text-muted-foreground">
         <p>
-          Whether you need a stronger website, a custom digital solution, or
-          simply want a second opinion on your current site, tell me a little
-          about what you&rsquo;re working with.
+          Whether you need a stronger website, a custom solution, ongoing
+          technical support, or a second opinion on a technical problem, tell
+          me a little about what you&rsquo;re working with.
         </p>
         <p>
-          You don&rsquo;t need to have everything figured out before reaching
-          out. Send as much or as little detail as you have — the more
+          You don&rsquo;t need to know what the solution is, or have everything
+          figured out, before reaching out. Send as much or as little detail as you have — the more
           specific you can be about what isn&rsquo;t working, the more useful
           my response can be.
         </p>

@@ -24,18 +24,19 @@ export function Hero() {
               </p>
 
               <h1 className="mt-6 max-w-3xl text-balance text-display font-semibold text-foreground">
-                A developer who understands the business behind the website.
+                A technical partner who understands the business behind the website.
               </h1>
             </div>
 
             <div className="order-3 lg:mt-6">
               <div className="max-w-xl space-y-5 text-lead text-muted-foreground">
                 <p>
-                  Rowlands Digital Works is an independent web development studio
-                  founded by Casey Rowlands in Central Florida. I help growing
-                  service businesses build better websites, connect the systems
-                  behind them, and solve technical problems without the layers of
-                  a traditional agency.
+                  I&rsquo;m Casey Rowlands, a full-stack developer and the
+                  founder of Rowlands Digital Works, an independent technical
+                  partner based in Central Florida. I help growing service
+                  businesses build better websites, connect the systems behind
+                  them, and solve technical problems without the layers of a
+                  traditional agency.
                 </p>
                 <p>
                   Clients work directly with me from the first conversation

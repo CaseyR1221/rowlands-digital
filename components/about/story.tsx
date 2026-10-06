@@ -25,17 +25,21 @@ export function Story() {
               infrastructure connecting them.
             </p>
             <div className="relative flex items-center gap-3">
-              <Quote aria-hidden="true" className="size-16 sm:size-6 text-accent relative -top-8.5 sm:-top-2.5" />
+              <Quote
+                aria-hidden="true"
+                className="size-16 sm:size-6 text-accent relative -top-8.5 sm:-top-2.5"
+              />
               <p className="font-bold italic text-accent text-2xl">
-              That experience changed the way I think about the digital process.
-            </p>
+                That experience changed the way I think about the digital
+                process.
+              </p>
             </div>
             <p>
               A website rarely exists by itself. It connects to marketing
               campaigns, scheduling platforms, forms, CRMs, analytics, internal
               processes, and the people responsible for keeping all of it
-              running. The best solution isn&rsquo;t always a new website or the newest
-              technology. Sometimes it&rsquo;s a better customer journey.
+              running. The best solution isn&rsquo;t always a new website or the
+              newest technology. Sometimes it&rsquo;s a better customer journey.
               Sometimes it&rsquo;s fixing an integration. Sometimes it&rsquo;s
               simplifying a process that has become unnecessarily complicated.
             </p>
@@ -47,8 +51,10 @@ export function Story() {
               working long after launch.
             </p>
             <p>
-              I started Rowlands Digital Works to bring that kind of practical
-              technical ownership directly to growing businesses.
+              I started Rowlands Digital Works to bring that same hands-on
+              technical partnership to independent practices and growing
+              businesses—combining web development, integrations, analytics, and
+              ongoing support without the layers of a traditional agency.
             </p>
           </div>
         </div>

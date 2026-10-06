@@ -15,7 +15,7 @@ import { siteConfig } from "@/lib/site";
 const title = "Chiropractic Website Design & Development";
 
 const description =
-  "Web development for chiropractic practices, including website redesigns, booking and CRM integrations, analytics, local SEO foundations, and ongoing technical support.";
+  "Web development for chiropractic practices, including website redesigns, booking and CRM integrations, analytics, local SEO foundations, and ongoing technical partnership.";
 
 export const metadata: Metadata = {
   title,

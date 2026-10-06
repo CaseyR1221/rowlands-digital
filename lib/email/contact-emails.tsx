@@ -15,8 +15,8 @@ const SUBJECT_LABELS: Record<InquiryType, string> = {
   "Website Redesign": "Website Redesign Inquiry",
   "New Website": "New Website Inquiry",
   "Custom Development / Integration": "Custom Development Inquiry",
-  "Ongoing Technical Support": "Technical Support Inquiry",
-  "Something Else": "General Inquiry",
+  "Fractional Technical Partnership": "Fractional Partnership Inquiry",
+  "Not Sure Yet / Something Else": "General Inquiry",
 };
 
 export async function sendInquiryNotification(

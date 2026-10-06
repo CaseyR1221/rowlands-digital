@@ -1,8 +1,8 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import { Container } from "@/components/container";
-import { ImageWithFallback } from "@/components/image-with-fallback";
-import { Button } from "@/components/ui/button";
+import { Container } from '@/components/container';
+import { ImageWithFallback } from '@/components/image-with-fallback';
+import { Button } from '@/components/ui/button';
 
 /**
  * Same accent band and artwork as the chiropractic callout on the Services
@@ -25,17 +25,22 @@ export function ChiropracticExperience() {
             </h2>
 
             <div className="mt-6 max-w-xl space-y-5 leading-relaxed text-muted-foreground">
+              <p className="font-bold text-foreground">I know the chiropractic space.</p>
               <p>
-                A significant part of my professional experience has been in
-                chiropractic technology. I&rsquo;ve worked with clinic websites,
-                multi-location architecture, booking systems, analytics, lead
-                tracking, content platforms, integrations, and the systems
-                surrounding the patient journey.
+                A large part of my professional background has been spent
+                supporting chiropractic businesses and the technology behind
+                them. I&rsquo;ve worked with clinic websites, booking and intake
+                systems, analytics, marketing integrations, multi-location
+                content, and the day-to-day requests that come from doctors and
+                their teams.
               </p>
               <p>
-                That means chiropractic practices don&rsquo;t have to start
-                every conversation by explaining how their website, scheduling,
-                marketing, and clinic systems fit together.
+                That experience gives me context that a general web developer
+                often has to learn from scratch. I understand that a
+                chiropractic website isn&rsquo;t just a brochure—it needs to
+                help prospective patients understand the practice, find the
+                right location or service, book an appointment, and move
+                smoothly into the systems your team already uses.
               </p>
             </div>
 

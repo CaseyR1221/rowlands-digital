@@ -31,8 +31,8 @@ const SERVICES = [
     featured: false,
   },
   {
-    title: "Ongoing technical partnership",
-    body: "Website maintenance, optimization, development, analytics support, and technical guidance after launch.",
+    title: "Fractional technical partnership",
+    body: "Ongoing website improvements, integrations, analytics, and troubleshooting from someone who already understands your systems, without a full-time hire.",
     wide: true,
     featured: false,
   },

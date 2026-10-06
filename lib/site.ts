@@ -3,9 +3,11 @@ export const siteConfig = {
   founder: "Casey Rowlands",
   email: "casey@rowlandsdigitalworks.com",
   url: "https://rowlandsdigitalworks.com",
-  tagline: "Web development and digital solutions for growing service businesses.",
+  linkedinUrl: "https://www.linkedin.com/in/casey-rowlands-0311/",
+  tagline:
+    "Websites, integrations, and ongoing technical partnership for growing service businesses.",
   description:
-    "Rowlands Digital Works helps growing service businesses build better websites, custom digital solutions, integrations, and systems that support business growth.",
+    "Rowlands Digital Works is an independent technical partner for growing service businesses, helping with websites, custom digital solutions, integrations, and the systems that support business growth.",
   areaServed: "Central Florida",
   locationLine: "Central Florida · Working with clients nationwide",
 } as const;

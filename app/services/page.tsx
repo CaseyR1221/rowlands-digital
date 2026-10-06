@@ -12,7 +12,7 @@ import { siteConfig } from "@/lib/site";
 const title = "Web Development Services";
 
 const description =
-  "Website design and development, redesigns, custom web applications, integrations, automation, analytics, and ongoing technical support for growing service businesses.";
+  "Website design and development, redesigns, custom web applications, integrations, automation, analytics, and fractional technical partnership for growing service businesses.";
 
 export const metadata: Metadata = {
   title,
@@ -34,7 +34,7 @@ const serviceSchema = {
   "@type": "Service",
   name: `${title} | ${siteConfig.name}`,
   description,
-  serviceType: "Web development and digital solutions for service businesses",
+  serviceType: "Web development, integrations, and technical partnership for service businesses",
   url: `${siteConfig.url}/services`,
   areaServed: siteConfig.areaServed,
   provider: {

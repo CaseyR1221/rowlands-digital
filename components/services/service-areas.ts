@@ -111,11 +111,11 @@ export const SERVICE_AREAS: ServiceArea[] = [
   {
     id: "ongoing-technical-partnership",
     number: "04",
-    title: "Ongoing Technical Partnership",
-    descriptor: "Someone technical to call after the project launches.",
+    title: "Fractional Technical Partnership",
+    descriptor: "An experienced technical partner, without the full-time hire.",
     summary:
-      "Maintenance, improvements, and technical guidance from the developer who built the work.",
-    body: "Platforms change, integrations break, and businesses evolve. Ongoing support gives you direct access to someone who already understands your technical environment, without hiring an internal developer.",
+      "Ongoing improvements, troubleshooting, and technical ownership from someone who understands your website and systems.",
+    body: "Platforms change, integrations break, and businesses evolve. As a fractional technical partner, I give your team direct access to someone who understands your technical environment and can take ownership of problems as they come up, without a full-time technical hire. It works for sites I built and for ones I didn’t.",
     work: [
       "Website maintenance and dependency updates",
       "Technical monitoring and troubleshooting",
@@ -123,9 +123,10 @@ export const SERVICE_AREAS: ServiceArea[] = [
       "Analytics and conversion-tracking support",
       "Small development requests and landing pages",
       "Integration and CMS support",
-      "Technical consulting and backlog planning",
+      "Technical recommendations, tool evaluation, and backlog planning",
+      "Coordination with marketing teams and outside vendors",
     ],
-    ctaLabel: "Ask About Ongoing Support",
+    ctaLabel: "Talk About Fractional Support",
     ctaTopic: "ongoing-support",
     imageConcept: "Casey working on or providing ongoing technical support",
     image: {

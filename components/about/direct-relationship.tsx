@@ -36,7 +36,7 @@ export function DirectRelationship() {
               Who You&rsquo;re Working With
             </p>
             <h2 className="mt-5 text-balance text-headline font-semibold text-foreground">
-              The person you talk to is the person building the project.
+              The person making the decisions is the person doing the work.
             </h2>
 
             <div className="mt-6 max-w-xl space-y-5 text-lead text-muted-foreground">

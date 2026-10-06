@@ -28,10 +28,11 @@ export function Hero() {
             </p>
 
             <p className="mt-5 max-w-xl text-lead leading-relaxed text-muted-foreground">
-              With firsthand experience working across chiropractic websites,
-              booking systems, analytics, clinic technology, and multi-location
-              platforms, Casey brings industry context to both the strategy and
-              the technical implementation.
+              Casey has firsthand experience with the websites, booking
+              systems, analytics, integrations, marketing tools, and
+              multi-location platforms behind a modern chiropractic practice,
+              bringing industry context to both the strategy and the technical
+              implementation.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">

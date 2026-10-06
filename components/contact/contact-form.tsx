@@ -225,7 +225,7 @@ export function ContactForm({
           name="details"
           required
           rows={5}
-          placeholder="Tell me what isn't working today, what you'd like to improve, or what you're trying to build."
+          placeholder="Tell me what isn't working today, what you'd like to improve, or what you're trying to build or figure out."
           defaultValue={values?.details}
           aria-invalid={fieldErrors?.details ? true : undefined}
           aria-describedby={fieldErrors?.details ? "details-error" : undefined}
