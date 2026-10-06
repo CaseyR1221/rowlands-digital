@@ -89,7 +89,7 @@ export default function ConnectPage() {
             <Button asChild size="xl" className="h-14 w-full text-base">
               <a href="/connect/casey-rowlands.vcf">
                 <UserRoundPlus className="size-5" />
-                Save Contact
+                Add To Contacts
               </a>
             </Button>
             <Button
