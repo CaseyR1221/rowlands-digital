@@ -1,9 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
-import { Container } from "@/components/container";
-import { Button } from "@/components/ui/button";
-import headshot from "@/public/casey-rowlands.jpg";
+import { Container } from '@/components/container';
+import { Button } from '@/components/ui/button';
+import headshot from '@/public/casey-rowlands.jpg';
 
 export function FounderSection() {
   return (
@@ -15,7 +15,7 @@ export function FounderSection() {
         </p>
 
         <h2 className="mt-4 max-w-xl text-balance text-headline font-semibold text-foreground">
-          The developer behind your project
+          A technical partner behind your business
         </h2>
 
         <figure className="mt-8 grid overflow-hidden rounded-2xl border border-border bg-surface sm:mt-10 md:grid-cols-12">
@@ -33,12 +33,14 @@ export function FounderSection() {
             <blockquote className="flex-1 p-7 sm:p-9 lg:p-10">
               <p className="max-w-2xl text-title leading-snug text-muted-foreground">
                 <span className="text-foreground">
-                  &ldquo;I started Rowlands Digital Works on one belief: a
-                  website should do real work for the business behind it.
-                </span>{" "}
-                That means direct communication, thoughtful technical decisions,
-                and one person accountable from the first conversation through
-                launch.&rdquo;
+                  &ldquo;Before starting Rowlands Digital Works, I spent years
+                  building and supporting websites and digital systems for
+                  chiropractic and wellness businesses.
+                </span>{' '}
+                That experience shaped how I work today: understand the
+                business first, make practical technical decisions, and take
+                ownership from the first conversation through
+                implementation.&rdquo;
               </p>
             </blockquote>
 
@@ -46,7 +48,7 @@ export function FounderSection() {
               <div>
                 <p className="font-medium text-foreground">Casey Rowlands</p>
                 <p className="text-sm text-muted-foreground">
-                  Founder &amp; developer, Central Florida
+                  Founder &amp; full-stack developer, Central Florida
                 </p>
               </div>
 

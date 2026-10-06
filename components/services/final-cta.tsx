@@ -16,7 +16,7 @@ export function FinalCta() {
           <div className="lg:col-span-7">
             <p className="max-w-xl text-lead text-muted-foreground">
               You don&rsquo;t need to know whether the answer is a redesign, an
-              integration, a custom build, or something smaller. If you already
+              integration, a custom build, ongoing technical help, or something smaller. If you already
               have a website, a free review is the easiest place to start. If
               not, tell me what you&rsquo;re trying to improve.
             </p>

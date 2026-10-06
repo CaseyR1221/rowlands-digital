@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/section-heading";
 const DIFFERENTIATORS = [
   {
     title: "Direct access",
-    body: "Work directly with the developer responsible for the project.",
+    body: "Work directly with the technical partner responsible for your project, from decisions to implementation.",
   },
   {
     title: "Chiropractic context",
@@ -15,8 +15,8 @@ const DIFFERENTIATORS = [
     body: "Go beyond page design when the problem involves integrations, APIs, data, analytics, or custom functionality.",
   },
   {
-    title: "Ongoing support",
-    body: "Have someone available after launch to maintain, improve, and troubleshoot the website and connected systems.",
+    title: "Ongoing partnership",
+    body: "Have someone who already understands your website and connected systems to maintain, improve, and troubleshoot them after launch.",
   },
 ];
 

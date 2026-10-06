@@ -5,8 +5,8 @@ export const inquiryTypes = [
   "Website Redesign",
   "New Website",
   "Custom Development / Integration",
-  "Ongoing Technical Support",
-  "Something Else",
+  "Fractional Technical Partnership",
+  "Not Sure Yet / Something Else",
 ] as const;
 
 export type InquiryType = (typeof inquiryTypes)[number];

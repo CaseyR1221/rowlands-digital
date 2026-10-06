@@ -11,7 +11,7 @@ import {
 import { siteConfig } from "@/lib/site";
 
 const description =
-  "Contact Rowlands Digital Works to request a free website review or discuss website development, custom digital solutions, integrations, and ongoing technical support.";
+  "Contact Rowlands Digital Works to request a free website review or discuss website development, custom digital solutions, integrations, or fractional technical partnership.";
 
 export const metadata: Metadata = {
   title: "Contact",

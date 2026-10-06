@@ -18,6 +18,14 @@ const PROJECT_TYPES = [
     title: "Custom development & integration",
     body: "For practices that need functionality or systems beyond what a standard website platform provides.",
   },
+  {
+    title: "Analytics & tracking",
+    body: "For practices that want a clearer picture of which pages, forms, and booking flows lead to new-patient inquiries.",
+  },
+  {
+    title: "Fractional technical partnership",
+    body: "For practices that want someone who understands their website, booking, analytics, and marketing tools to turn to as needs come up, without a full-time hire.",
+  },
 ];
 
 export function ProjectTypes() {

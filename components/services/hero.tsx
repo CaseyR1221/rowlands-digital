@@ -26,7 +26,8 @@ export function Hero() {
               Rowlands Digital Works helps growing service businesses improve
               their websites, connect disconnected tools, and build custom
               digital solutions when off-the-shelf platforms are no longer
-              enough.
+              enough. Work with me on a single project or as an ongoing
+              technical partner.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:gap-4">

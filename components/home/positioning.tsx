@@ -21,7 +21,7 @@ const FOCUS_AREAS: {
   {
     icon: Wrench,
     title: "Improve & support",
-    body: "Improve performance, maintainability, analytics, and reliability — with an experienced developer available when something needs attention.",
+    body: "Improve performance, maintainability, analytics, and reliability — with someone who understands your systems available when something needs attention.",
   },
 ];
 

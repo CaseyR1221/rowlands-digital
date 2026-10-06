@@ -13,7 +13,7 @@ const TOPIC_INQUIRY_TYPES = {
   "website-redesign": "Website Redesign",
   "new-website": "New Website",
   "custom-development": "Custom Development / Integration",
-  "ongoing-support": "Ongoing Technical Support",
+  "ongoing-support": "Fractional Technical Partnership",
 } as const satisfies Record<string, InquiryType>;
 
 export type ContactTopic = keyof typeof TOPIC_INQUIRY_TYPES;

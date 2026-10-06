@@ -46,7 +46,7 @@ export function WorkTogether() {
               title="Built to Work Together"
               lead={
                 <>
-                  Work directly with the developer responsible for your
+                  Work directly with the technical partner responsible for your
                   project, from the first conversation through launch and
                   beyond. My process is always to:
                 </>
