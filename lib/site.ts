@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "Rowlands Digital Works",
   founder: "Casey Rowlands",
+  founderTitle: "Technical Partner",
   email: "casey@rowlandsdigitalworks.com",
   url: "https://rowlandsdigitalworks.com",
   linkedinUrl: "https://www.linkedin.com/in/casey-rowlands-0311/",
